@@ -1,8 +1,6 @@
 const https = require("https")
 const express = require("express")
-const app = express()
 var router = express.Router();
-const PORT = process.env.PORT || 3000
 const TOKEN = process.env.LINE_ACCESS_TOKEN
 
 router.get("/", (req, res) => {
@@ -59,8 +57,4 @@ router.post("/webhook", function(req, res) {
     request.write(dataString)
     request.end()
   }
-})
-
-router.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`)
 })
