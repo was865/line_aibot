@@ -24,6 +24,7 @@ router.post('/webhook', (req, res) => {
 
 const client = new line.Client(config);
 async function handleEvent(event) {
+
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
   }
@@ -34,10 +35,11 @@ async function handleEvent(event) {
 
 function getAnwser(text) {
   return new Promise(resolve => {
-    var id = setTimeout(() => {
-      resolve(text + ' ' + text);
-       clearTimeout(id);
-    }, 5000);
+    // var id = setTimeout(() => {
+    //   resolve(text + ' ' + text);
+    //    clearTimeout(id);
+    // }, 2000);
+    resolve(text+text+text+text+text+text+text);
   })
 }
 
