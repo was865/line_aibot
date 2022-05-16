@@ -15,10 +15,7 @@ const config = {
 router.post('/webhook', (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
-    .then((result) => {
-      console.log(result);
-      res.json(result);
-    })
+    .then((result) => res.json(result))
     .catch((err) => {
       console.error(err);
       res.status(500).end();
@@ -31,9 +28,20 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  const echo = { type: 'text', text: event.message.text };
+  (async () => {
+    
+    const anwser = { type: 'text', text: await getAnwser(event.message.text) };
+    return client.replyMessage(event.replyToken, anwser);
+  
+  })()
+}
 
-  return client.replyMessage(event.replyToken, echo);
+function getAnwser(text) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(text + ' ' + text);
+    }, 2000);
+  })
 }
 
 // router.post("/webhook", function(req, res) {
