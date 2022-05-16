@@ -2,7 +2,6 @@ const https = require("https")
 const express = require("express")
 var router = express.Router();
 const line = require('@line/bot-sdk');
-// const TOKEN = process.env.LINE_ACCESS_TOKEN
 
 router.get("/", (req, res) => {
   res.sendStatus(200)
@@ -14,12 +13,12 @@ const config = {
 };
 
 router.post('/webhook', (req, res) => {
-  // 先行してLINE側にステータスコード200でレスポンスする。
-  // res.sendStatus(200);
-  // console.log(req.body.events)
   Promise
     .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
+    .then((result) => {
+      console.log(result);
+      res.json(result);
+    })
     .catch((err) => {
       console.error(err);
       res.status(500).end();
@@ -29,12 +28,10 @@ router.post('/webhook', (req, res) => {
 const client = new line.Client(config);
 function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
-    console.log('行30')
     return Promise.resolve(null);
   }
 
   const echo = { type: 'text', text: event.message.text };
-  console.log('行35')
 
   return client.replyMessage(event.replyToken, echo);
 }
