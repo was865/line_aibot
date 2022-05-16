@@ -13,6 +13,8 @@ const config = {
   channelSecret: process.env.LINE_SECRET,
 };
 
+console.log(config);
+
 router.post('/webhook', line.middleware(config), (req, res) => {
   console.log(req.body.events)
   Promise
