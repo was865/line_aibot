@@ -2,7 +2,7 @@ const https = require("https")
 const express = require("express")
 var router = express.Router();
 const line = require('@line/bot-sdk');
-const TOKEN = process.env.LINE_ACCESS_TOKEN
+// const TOKEN = process.env.LINE_ACCESS_TOKEN
 
 router.get("/", (req, res) => {
   res.sendStatus(200)
@@ -10,11 +10,8 @@ router.get("/", (req, res) => {
 
 const config = {
   channelAccessToken: process.env.LINE_ACCESS_TOKEN,
-  channelSecret: process.env.LINE_SECRET,
+  channelSecret: process.env.LINE_CHANNEL_SECRET
 };
-
-
-console.log(line.middleware(config));
 
 router.post('/webhook', line.middleware(config), (req, res) => {
   // 先行してLINE側にステータスコード200でレスポンスする。
