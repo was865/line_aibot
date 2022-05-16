@@ -13,26 +13,28 @@ const config = {
   channelSecret: process.env.LINE_SECRET,
 };
 
-console.log(config);
-
 router.post('/webhook', line.middleware(config), (req, res) => {
   console.log(req.body.events)
   Promise
     .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result));
+    .then((result) => res.json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).end();
+    });
 });
 
 const client = new line.Client(config);
 function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
+    console.log('行30')
     return Promise.resolve(null);
   }
 
-  console.log(event);
-  return client.replyMessage(event.replyToken, {
-    type: 'text',
-    text: event.message.text
-  });
+  const echo = { type: 'text', text: event.message.text };
+  console.log('行35')
+
+  return client.replyMessage(event.replyToken, echo);
 }
 
 // router.post("/webhook", function(req, res) {
