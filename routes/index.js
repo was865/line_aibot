@@ -13,15 +13,18 @@ const config = {
   channelSecret: process.env.LINE_SECRET,
 };
 
+
+console.log(line.middleware(config));
+
 router.post('/webhook', line.middleware(config), (req, res) => {
   console.log(req.body.events)
-  // Promise
-  //   .all(req.body.events.map(handleEvent))
-  //   .then((result) => res.json(result))
-  //   .catch((err) => {
-  //     console.error(err);
-  //     res.status(500).end();
-  //   });
+  Promise
+    .all(req.body.events.map(handleEvent))
+    .then((result) => res.json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).end();
+    });
 });
 
 const client = new line.Client(config);
