@@ -37,7 +37,7 @@ function getAnwser(text) {
     var id = setTimeout(() => {
       resolve(text + ' ' + text);
        clearTimeout(id);
-    }, 2000);
+    }, 5000);
   })
 }
 
