@@ -13,17 +13,17 @@ const config = {
   channelSecret: process.env.LINE_CHANNEL_SECRET
 };
 
-router.post('/webhook', line.middleware(config), (req, res) => {
+router.post('/webhook', (req, res) => {
   // 先行してLINE側にステータスコード200でレスポンスする。
   res.sendStatus(200);
   console.log(req.body.events)
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).end();
-    });
+  // Promise
+  //   .all(req.body.events.map(handleEvent))
+  //   .then((result) => res.json(result))
+  //   .catch((err) => {
+  //     console.error(err);
+  //     res.status(500).end();
+  //   });
 });
 
 const client = new line.Client(config);
