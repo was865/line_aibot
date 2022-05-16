@@ -15,7 +15,7 @@ const config = {
 
 router.post('/webhook', (req, res) => {
   // 先行してLINE側にステータスコード200でレスポンスする。
-  res.sendStatus(200);
+  // res.sendStatus(200);
   // console.log(req.body.events)
   Promise
     .all(req.body.events.map(handleEvent))
