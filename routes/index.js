@@ -2,6 +2,7 @@ const https = require("https")
 const express = require("express")
 const app = express()
 var router = express.Router();
+const PORT = process.env.PORT || 3000
 const TOKEN = process.env.LINE_ACCESS_TOKEN
 
 router.get("/", (req, res) => {
