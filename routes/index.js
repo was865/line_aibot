@@ -23,14 +23,13 @@ router.post('/webhook', (req, res) => {
 });
 
 const client = new line.Client(config);
-async function handleEvent(event) {
+function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
   }
 
-  const anwser = { type: 'text', text: await getAnwser(event.message.text) };
+  const anwser = { type: 'text', text: getAnwser(event.message.text) };
   return client.replyMessage(event.replyToken, anwser);
-
 }
 
 function getAnwser(text) {
