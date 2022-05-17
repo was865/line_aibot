@@ -33,15 +33,16 @@ async function handleEvent(event) {
   return client.replyMessage(event.replyToken, anwser);
 }
 
+var doFirstTimeOnly = true;
 function getAnwser(input_text) {
   return new Promise(resolve => {
     const {PythonShell} = require("python-shell");
 
-    var options = {
-      pythonPath: 'Python',
-      pythonOptions: ['-u'],
-      scriptPath: './'
-    }
+    // var options = {
+    //   pythonPath: 'Python',
+    //   pythonOptions: ['-u'],
+    //   scriptPath: './'
+    // }
 
     var pyshell = new PythonShell('./python/chatbot.py');
 
@@ -49,12 +50,22 @@ function getAnwser(input_text) {
     var data = {
       input_text: input_text
     };
+
+    if (doFirstTimeOnly) {
+      data = {
+        input_text: input_text,
+        doTrain: true
+      };
+      doFirstTimeOnly = false;
+    }
+      
+    console.log(JSON.stringify(data));
     pyshell.send(JSON.stringify(data));
 
     pyshell.on('message', function (message) {
       // received a message sent from the Python script (a simple "print" statement)
       console.log("結果：" + message);
-      result =message;
+      result = message;
     });
 
     // end the input stream and allow the process to exit

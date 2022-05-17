@@ -17,15 +17,18 @@ bot = ChatBot(
     # tagger_language=languages.GINZA  # GINZAモデルの場合
 )
 
-# trainer = ChatterBotCorpusTrainer(bot)
+if json_dict["doTrain"] == True:
+    trainer = ChatterBotCorpusTrainer(bot)
 
-# trainer.train(
-#         'chatterbot.corpus.japanese' # 日本語用コーパス
-# )
+    trainer.train(
+        'chatterbot.corpus.japanese'  # 日本語用コーパス
+    )
+
 
 try:
     input_data = json_dict["input_text"]
     response = bot.get_response(input_data)
-    print('{}: {}'.format(bot.name, response))
+    # print('{}: {}'.format(bot.name, response))
+    print(response)
 except(KeyboardInterrupt, EOFError, SystemExit):
     print('error.')
