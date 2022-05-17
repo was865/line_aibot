@@ -24,7 +24,6 @@ bot = ChatBot(
 #         'chatterbot.corpus.japanese'  # 日本語用コーパス
 #     )
 
-
 try:
     input_data = json_dict["input_text"]
     response = bot.get_response(input_data)
