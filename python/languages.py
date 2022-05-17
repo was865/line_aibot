@@ -5,6 +5,6 @@ class JPN:
 
 
 class GINZA:
-    ISO_639_1 = 'electra'
+    ISO_639_1 = 'ja_ginza_electra'
     ISO_639 = 'ginza'
     ENGLISH_NAME = 'ginza'
