@@ -3,6 +3,11 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 # from chatterbot import languages  # 言語モジュール
 import languages  # 自作言語モジュール
 
+# nodejs 用
+import sys
+import json
+import pickle
+
 jsonData = sys.stdin.readline()  # ①データはこうやって読み込むらしいがテキスト形式になっているので注意！
 json_dict = json.loads(jsonData)
 
