@@ -33,15 +33,40 @@ async function handleEvent(event) {
   return client.replyMessage(event.replyToken, anwser);
 }
 
-function getAnwser(text) {
+function getAnwser(input_text) {
   return new Promise(resolve => {
-    // var id = setTimeout(() => {
-    //   resolve(text + ' ' + text);
-    //    clearTimeout(id);
-    // }, 2000);
-    resolve(text+text+text+text+text+text+text);
+    var PythonShell = require('python-shell');
+
+    var options = {
+      pythonPath: 'Python',
+      pythonOptions: ['-u'],
+      scriptPath: './'
+    }
+
+    var pyshell = new PythonShell('./python/chatbot.py', options);
+
+    // sends a message to the Python script via stdin
+    var data = {
+      input_text: input_text
+    };
+    pyshell.send(JSON.stringify(data));
+
+    pyshell.on('message', function (message) {
+      // received a message sent from the Python script (a simple "print" statement)
+      console.log("結果：" + message);
+      result =message;
+    });
+
+    // end the input stream and allow the process to exit
+    pyshell.end(function (err, code, signal) {
+      if (err) throw err;
+      console.log('The exit code was: ' + code);
+      console.log('The exit signal was: ' + signal);
+      resolve(result);
+    });
   })
 }
+
 
 // router.post("/webhook", function(req, res) {
 //   res.send("HTTP POST request sent to the webhook URL!")
