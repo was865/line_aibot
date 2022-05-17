@@ -35,7 +35,7 @@ async function handleEvent(event) {
 
 function getAnwser(input_text) {
   return new Promise(resolve => {
-    var PythonShell = require('python-shell');
+    const {PythonShell} = require("python-shell");
 
     var options = {
       pythonPath: 'Python',
