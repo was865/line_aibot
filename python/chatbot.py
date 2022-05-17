@@ -2,9 +2,12 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 # from chatterbot import languages  # 言語モジュール
 import languages  # 自作言語モジュール
+import sys
 
-jsonData = sys.stdin.readline()  # ①データはこうやって読み込むらしいがテキスト形式になっているので注意！
-json_dict = json.loads(jsonData)
+# jsonData = sys.stdin.readline()  # ①データはこうやって読み込むらしいがテキスト形式になっているので注意！
+# json_dict = json.loads(jsonData)
+
+data = sys.stdin.readline()
 
 bot = ChatBot(
     name='ボット',
@@ -19,7 +22,8 @@ bot = ChatBot(
 # )
 
 try:
-    input_data = json_dict["input_text"]
+    input_data = data
+    # input_data = json_dict["input_text"]
     response = bot.get_response(input_data)
     print('{}: {}'.format(bot.name, response))
 except(KeyboardInterrupt, EOFError, SystemExit):
