@@ -8,8 +8,8 @@ json_dict = json.loads(jsonData)
 
 bot = ChatBot(
     name='ボット',
-    #         tagger_language=languages.JPN # 統計モデルの言語指定
-    tagger_language=languages.GINZA  # GINZAモデルの場合
+    tagger_language=languages.JPN  # 統計モデルの言語指定
+    # tagger_language=languages.GINZA  # GINZAモデルの場合
 )
 
 # trainer = ChatterBotCorpusTrainer(bot)
