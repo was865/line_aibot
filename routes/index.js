@@ -43,7 +43,7 @@ function getAnwser(input_text) {
       scriptPath: './'
     }
 
-    var pyshell = new PythonShell('./python/chatbot.py', options);
+    var pyshell = new PythonShell('./python/chatbot.py');
 
     // sends a message to the Python script via stdin
     var data = {
