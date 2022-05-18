@@ -17,12 +17,12 @@ bot = ChatBot(
     # tagger_language=languages.GINZA  # GINZAモデルの場合
 )
 
-# if json_dict["doTrain"] == True:
-#     trainer = ChatterBotCorpusTrainer(bot)
+if json_dict["doTrain"] == True:
+    trainer = ChatterBotCorpusTrainer(bot)
 
-#     trainer.train(
-#         'chatterbot.corpus.japanese'  # 日本語用コーパス
-#     )
+    trainer.train(
+        './chatterbot_corpus/data/japanese'  # 日本語用コーパス
+    )
 
 try:
     input_data = json_dict["input_text"]
