@@ -27,7 +27,7 @@
       dataType: 'json'
       }).done(function (json, textStatus, jqXHR) {
         console.log(json);
-        $('#anwser').val(JSON.parse(json)),
+        $('#anwser').val(JSON.parse(json));
           
       // 通信に失敗した時に実行される
       }).fail(function (jqXHR, textStatus, errorThrown) {
