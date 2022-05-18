@@ -3,9 +3,40 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <form method="POST" action="/chat" autocomplete="off">
+        <input id="inputtext" name="inputtext" class="form-control" type="text" placeholder="入力" autocomplete="off">
+        <input id="anwser" type="text" placeholder="回答" autocomplete="off">
+        <a href="javascript:form_newuser.submit()" id="btn_submit">新規登録</a>
+    </form>
   </body>
 </html>
+<script>
+  $('#btn_submit').click(function(e){
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/chat',
+      data: {
+        inputtext: $('#inputtext').val(),
+      },
+      dataType: 'json'
+      }).done(function (json, textStatus, jqXHR) {
+        console.log(json);
+        $('#anwser').val(JSON.parse(json)),
+          
+      // 通信に失敗した時に実行される
+      }).fail(function (jqXHR, textStatus, errorThrown) {
+          console.log("jqXHR.status: " + jqXHR.status); //例：404
+          console.log("textStatus: " + textStatus); //例：error
+          console.log("errorThrown: " + errorThrown); //例：NOT FOUND
+      // 成功/失敗に関わらず実行される
+      }).always(function () {
+          console.log("Ajax通信完了。");
+      })
+  })
+</script>

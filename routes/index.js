@@ -4,13 +4,22 @@ var router = express.Router();
 const line = require('@line/bot-sdk');
 
 router.get("/", (req, res) => {
-  res.sendStatus(200)
+  res.render('index', { title: 'Linebot' });
 })
 
 const config = {
   channelAccessToken: process.env.LINE_ACCESS_TOKEN,
   channelSecret: process.env.LINE_CHANNEL_SECRET
 };
+
+router.post('/chat', (req, res) => {
+  (async () => {
+    if (req.body.inputtext) {
+      const anwser = getAnwser(req.body.inputtext);
+      res.json(JSON.stringify(anwser))
+    }
+  })()
+});
 
 router.post('/webhook', (req, res) => {
   Promise
@@ -46,7 +55,6 @@ function getAnwser(input_text) {
 
     var pyshell = new PythonShell('./python/chatbot.py');
 
-    // sends a message to the Python script via stdin
     var data = {
       input_text: input_text,
       doTrain: false
@@ -77,6 +85,17 @@ function getAnwser(input_text) {
       resolve(result);
     });
   })
+}
+
+// サイト用
+async function handleEventForSite(event) {
+
+  if (event.type !== 'message' || event.message.type !== 'text') {
+    return Promise.resolve(null);
+  }
+
+  const anwser = { type: 'text', text: await getAnwser(event.message.text) };
+  return client.replyMessage(event.replyToken, anwser);
 }
 
 
