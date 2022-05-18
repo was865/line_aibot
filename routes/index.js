@@ -15,7 +15,7 @@ const config = {
 router.post('/chat', (req, res) => {
   (async () => {
     if (req.body.inputtext) {
-      const anwser = getAnwser(req.body.inputtext);
+      const anwser = await getAnwser(req.body.inputtext);
       res.json(JSON.stringify(anwser))
     }
   })()
