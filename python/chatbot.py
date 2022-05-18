@@ -22,7 +22,8 @@ if json_dict["doTrain"] == True:
     trainer = ChatterBotCorpusTrainer(bot)
 
     trainer.train(
-        '/app/python/chatterbot_corpus/data/japanese'  # 日本語用コーパス
+        # '/app/python/chatterbot_corpus/data/japanese'  # 日本語用コーパス
+        '/app/python/my_traindata.json'
     )
 
 try:
