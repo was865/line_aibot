@@ -48,7 +48,8 @@ function getAnwser(input_text) {
 
     // sends a message to the Python script via stdin
     var data = {
-      input_text: input_text
+      input_text: input_text,
+      doTrain: false
     };
 
     if (doFirstTimeOnly) {
