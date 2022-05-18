@@ -5,6 +5,7 @@ import languages  # 自作言語モジュール
 
 # nodejs 用
 import sys
+import os
 import json
 import pickle
 
@@ -21,6 +22,7 @@ if json_dict["doTrain"] == True:
     trainer = ChatterBotCorpusTrainer(bot)
 
     trainer.train(
+        os.path.abspath(os.curdir) +
         '/chatterbot_corpus/data/japanese'  # 日本語用コーパス
     )
 
