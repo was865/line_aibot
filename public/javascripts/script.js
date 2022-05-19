@@ -1,5 +1,10 @@
 $(function () {
 
+    var ua = navigator.userAgent;
+    var isMobile = (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0) && ua.indexOf('Mobile') > 0;
+    var isAndroid = (ua.indexOf('Android') > 0)
+    var isIPhone = (ua.indexOf('iPhone') > 0)
+
     $('.line__container').draggable({
      	// containment: "parent",
         // 	axis: 'x'
@@ -10,6 +15,23 @@ $(function () {
         // },
         // zIndex: 99
     });
+
+    //通常のスクリプト///////////////////////////////////////////////////////////////////////////////////
+    //iPhoneの顎にスペースを確保
+    if (isIPhone) {
+        $('#chat-input').focus(function () {
+            $('.line__container .scroll').css('height', 'calc(100vh - 50px - 56px)');
+            $('#chat-input').css('height', '50px');
+            $('#chat-input').css('padding-bottom', '10px');
+            $('.chat-submit').css('bottom', '0px');
+        })
+        $('#chat-input').blur(function () {
+            $('.chat-logs').css('height', '');
+            $('#chat-input').css('height', '');
+            $('#chat-input').css('padding-bottom', '');
+            $('.chat-submit').css('bottom', '');
+        })
+    }
 
     // var INDEX = 0;
     function generate_message(msg, type, posttime) {
