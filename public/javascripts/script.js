@@ -26,10 +26,10 @@ $(function () {
             $('.chat-submit').css('bottom', '0px');
         })
         $('#chat-input').blur(function () {
-            $('.chat-logs').css('height', '');
-            $('#chat-input').css('height', '');
-            $('#chat-input').css('padding-bottom', '');
-            $('.chat-submit').css('bottom', '');
+            $('.chat-logs').css('height', 'calc(100vh - 50px - 56px - 15px)');
+            $('#chat-input').css('height', '50px + 15px');
+            $('#chat-input').css('padding-bottom', '10px + 15px');
+            $('.chat-submit').css('bottom', '15px');
         })
     }
 
