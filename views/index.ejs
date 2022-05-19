@@ -1,42 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <form method="POST" action="/chat" autocomplete="off">
-        <input id="inputtext" name="inputtext" class="form-control" type="text" placeholder="入力" autocomplete="off">
-        <input id="anwser" type="text" placeholder="回答" autocomplete="off">
-        <a href="javascript:form_newuser.submit()" id="btn_submit">送る</a>
-    </form>
-  </body>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <title>LINE aiBot │ WebSite Side </title>
+  <!-- <link rel='stylesheet' href='style.css' type='text/css' media='all' /> -->
+  <link rel='stylesheet' href='/public/stylesheets/style.css' type='text/css' media='all'/>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+</head>
+<body>
+
+  <!-- ▼LINE風ここから -->
+  <div class="line__container">
+    <!-- タイトル -->
+    <div class="line__title">
+      てすとaiBot
+    </div>
+
+    <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
+    <div class="line__contents scroll">
+
+      <!-- 相手の吹き出し -->
+      <!-- <div class="line__left">
+        <figure>
+          <img src="/public/icon.png" />
+        </figure>
+        <div class="line__left-text">
+          <div class="name">うさきち</div>
+          <div class="text">ねぇねぇ、帰ってくるのおそいんだけど！！今どこいまどこいまどこーー</div>
+        </div>
+      </div> -->
+
+      <!-- 相手のスタンプ -->
+      <!-- <div class="line__left">
+        <div class="stamp"><img src="/public/stamp/13.png" /></div>
+      </div> -->
+
+      <!-- 相手の吹き出し -->
+      <!-- <div class="line__left">
+        <figure>
+          <img src="/public/icon.png" />
+        </figure>
+        <div class="line__left-text">
+          <div class="name">うさきち</div>
+          <div class="text">今から帰るよー</div>
+        </div>
+      </div> -->
+
+      <!-- 自分の吹き出し -->
+      <!-- <div class="line__right">
+        <div class="text">了解！寝過ごさないようにだよ〜風呂ためとこ</div>
+        <span class="date">既読<br>0:30</span>
+      </div> -->
+
+      <!-- 自分のスタンプ -->
+      <!-- <div class="line__right">
+        <div class="stamp"><img src="/public/stamp/22.png" /></div>
+        <span class="date">既読<br>0:30</span>
+      </div> -->
+
+    </div>
+    <div class="chat-input">
+        <form autocomplete="off" id="chat-input-form">
+            <input type="text" id="chat-input" placeholder="チャット内容はここに入力..." />
+            <button type="submit" class="chat-submit" id="chat-submit"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title/><g fill="rgba(0,0,0,.38)" data-name="1" id="_1"><path d="M291.48,449.94A15,15,0,0,1,278,441.5L207.5,296.57,62.57,226.08a15,15,0,0,1,1-27.41L435.48,49.08A15,15,0,0,1,455,68.6L305.4,440.54A15,15,0,0,1,292,449.93Zm-185.38-236,119.18,58a15,15,0,0,1,6.93,6.93l58,119.18L414,90Z"/><path d="M218.72,300.35a15,15,0,0,1-10.6-25.61L430.47,52.39a15,15,0,1,1,21.21,21.22L229.33,296A15,15,0,0,1,218.72,300.35Z"/></g></svg></button>
+        </form>
+    </div>
+    <!--　▲会話エリア ここまで -->
+  </div>
+  <!--　▲LINE風ここまで -->
+
+</body>
+
 </html>
-<script>
-  $('#btn_submit').click(function(e){
-    e.preventDefault();
-    $.ajax({
-      type: 'post',
-      url: '/chat',
-      data: {
-        inputtext: $('#inputtext').val(),
-      },
-      dataType: 'json'
-      }).done(function (json, textStatus, jqXHR) {
-        console.log(json);
-        $('#anwser').val(JSON.parse(json));
-          
-      // 通信に失敗した時に実行される
-      }).fail(function (jqXHR, textStatus, errorThrown) {
-          console.log("jqXHR.status: " + jqXHR.status); //例：404
-          console.log("textStatus: " + textStatus); //例：error
-          console.log("errorThrown: " + errorThrown); //例：NOT FOUND
-      // 成功/失敗に関わらず実行される
-      }).always(function () {
-          console.log("Ajax通信完了。");
-      })
-  })
-</script>
+
+<script src="/public/javascripts/script.js"></script>
