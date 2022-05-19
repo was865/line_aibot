@@ -1,6 +1,30 @@
 /*/////////////////////////////////////////////////
 //LINE風チャット画面(会話方式)を記事に表示する方法
 /////////////////////////////////////////////////*/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	/* font-family: "BIZ UDPゴシック", "BIZ UDPGothic", "UD Digi Kyokasho N-R", sans-serif; */
+	font-family: "Sawarabi Gothic", "Hiragino Kaku Gothic ProN";
+	/* height: 100%; */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #f6f6f6ee;
+	/* background-color: #fff; */
+	user-select: none; /* CSS3 */
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari、Chromeなど */
+	-ms-user-select: none; /* IE10かららしい */
+	-webkit-touch-callout: none;
+}
 
 .line__container {
   padding:0;
@@ -10,7 +34,6 @@
   margin: 20px auto;
   font-size: 80%;
   border-radius: 10px;
-
 }
 
 /* タイトル部分 */
@@ -246,4 +269,32 @@
 .line__contents.scroll::-webkit-scrollbar-thumb
 {
   background-color: #bfbfbf;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  .line__container {
+    max-width: 100vw;
+    margin: 0;
+    font-size: 100%;
+    border-radius: 0;
+  }
+
+  /* タイトル部分 */
+  .line__container .line__title {
+    border-radius: 0;
+  }
+  .line__container .line__title:active {
+    cursor: grabbing;
+  }
+
+  /* 会話部分 */
+  .line__container .line__contents {
+    line-height: 150%;
+  }
+
+  .line__container .scroll {
+    height: calc(100vh - 50px - 56px);
+  }
 }

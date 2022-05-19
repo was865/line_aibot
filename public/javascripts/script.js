@@ -54,10 +54,11 @@ $(function () {
         generate_message(inputtext, 'self', null);
         $('#chat-input').val('');
 
-        var timerId = setTimeout(function(){
+        var timerId = setTimeout(function () {
+            generate_message('システムが休眠から目覚めています、少々お待ちください...', 'user', null);
             generate_message('', 'stamp', null);
             clearTimeout(timerId);
-        },1500);
+        }, 1500);
 
         $.ajax({
         type: 'post',
