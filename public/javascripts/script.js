@@ -1,6 +1,6 @@
 $(function () {
 
-    var INDEX = 0;
+    // var INDEX = 0;
     function generate_message(msg, type, posttime) {
         INDEX++;
         var str = "";
@@ -37,9 +37,9 @@ $(function () {
 
     $('#chat-submit').click(function(e){
         e.preventDefault();
-        var inputtext = $('#inputtext').val();
+        var inputtext = $('#chat-input').val();
         generate_message(inputtext, 'self', null);
-        $('#inputtext').val('');
+        $('#chat-input').val('');
 
         $.ajax({
         type: 'post',
