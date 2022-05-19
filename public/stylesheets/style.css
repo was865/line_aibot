@@ -35,7 +35,7 @@
 }
 
 .line__container .scroll {
-  height: 900px;
+  height: 600px;
   overflow-y: scroll;
 }
 
@@ -214,13 +214,14 @@
   float: right;
   outline: 0 none;
   border: none;
-  /* background: rgba(0,0,0,.05); */
+  background: #ffffff;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   padding: 2px 0 0 0;
   margin: 10px;
   transition: all 0.15s ease-in-out;
+  cursor: pointer;
 }
 .chat-submit:hover {
   background: rgba(0,0,0,.1);
