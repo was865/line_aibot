@@ -90,6 +90,8 @@
   border-radius: 20px;
   background-color: #ffffff;
   width: fit-content;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 /* 吹き出し */
@@ -125,6 +127,9 @@
   background-color: #8de055;
   margin: 0;
   margin-left: 80px;
+  width: fit-content;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 /* 吹き出し */

@@ -28,7 +28,7 @@ $(function () {
                 + '<span class="date">既読<br>' + posttime + '</span></div>'
         } else {
             str = '<div class="line__left">'
-                + '  <figure><img src="/public/icon.png" /></figure>'
+                + '  <figure><img src="/icon.png" /></figure>'
                 + '  <div class="line__left-text">'
                 + '  <div class="name">てすとイチゴウ</div>'
                 + '  <div class="text">'+ msg + '</div>'
