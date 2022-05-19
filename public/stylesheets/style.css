@@ -295,6 +295,15 @@ body {
   }
 
   .line__container .scroll {
-    height: calc(100vh - 50px - 56px);
+    height: calc(100vh - 50px - 56px -13px);
+  }
+
+  #chat-input{
+    height: calc(50px + 13px);
+    padding-bottom: calc(10px + 13px);
+  }
+
+  .chat-submit {
+    bottom: 13px;
   }
 }
