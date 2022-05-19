@@ -272,7 +272,7 @@ body {
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 500px) {
 
   .line__container {
     max-width: 100vw;
@@ -284,6 +284,7 @@ body {
   /* タイトル部分 */
   .line__container .line__title {
     border-radius: 0;
+    font-size: 130%;
   }
   .line__container .line__title:active {
     cursor: grabbing;
@@ -295,15 +296,15 @@ body {
   }
 
   .line__container .scroll {
-    height: calc(100vh - 50px - 56px -13px);
+    height: calc(100vh - 50px - 56px - 15px);
   }
 
   #chat-input{
-    height: calc(50px + 13px);
-    padding-bottom: calc(10px + 13px);
+    height: calc(50px + 15px);
+    padding-bottom: calc(10px + 15px);
   }
 
   .chat-submit {
-    bottom: 13px;
+    bottom: 15px;
   }
 }
