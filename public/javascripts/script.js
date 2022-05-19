@@ -26,7 +26,7 @@ $(function () {
             str = '<div class="line__right">'
                 + '<div class="text">' + msg + '</div>'
                 + '<span class="date">既読<br>' + posttime + '</span></div>'
-        } else {
+        } else if (type == 'user'){
             str = '<div class="line__left">'
                 + '  <figure><img src="/icon.png" /></figure>'
                 + '  <div class="line__left-text">'
@@ -34,6 +34,8 @@ $(function () {
                 + '  <div class="text">'+ msg + '</div>'
                 + '  </div>'
                 + '</div>'
+        } else if (type = 'stamp') {
+            str = '<div class="line__left"><figure><img src="/icon.png" /></figure><div class="stamp"><div class="name">てすとイチゴウ</div><img src="/stamp/14.png" /></div></div>'
         }
         
         $(".line__contents").append(str);
@@ -52,6 +54,11 @@ $(function () {
         generate_message(inputtext, 'self', null);
         $('#chat-input').val('');
 
+        var timerId = setTimeout(function(){
+            generate_message('', 'stamp', null);
+            clearTimeout(timerId);
+        },1500);
+
         $.ajax({
         type: 'post',
         url: '/chat',
@@ -62,6 +69,7 @@ $(function () {
         }).done(function (json, textStatus, jqXHR) {
             console.log(json);
             generate_message(JSON.parse(json), 'user', null);
+            clearTimeout(timerId);
             
         // 通信に失敗した時に実行される
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -73,5 +81,4 @@ $(function () {
             console.log("Ajax通信完了。");
         })
     })
-
 })
