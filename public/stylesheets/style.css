@@ -9,6 +9,8 @@
   max-width: 400px;
   margin: 20px auto;
   font-size: 80%;
+  border-radius: 10px;
+
 }
 
 /* タイトル部分 */
@@ -18,6 +20,11 @@
   text-align: center;
   font-size: 150%;
   color: #ffffff;
+  border-radius: 10px 10px 0 0;
+  cursor: grab;
+}
+.line__container .line__title:active {
+  cursor: grabbing;
 }
 
 /* 会話部分 */
@@ -158,6 +165,9 @@
 /*****************************************************************************************/
 #chat-input-form {
   background: #ffffff;
+  border: 1px solid #ccc;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
 }
 #chat-input {
   /* background: #ffffff; */
@@ -171,11 +181,11 @@
   border:none;
   resize:none;
   outline:none;
-  /* border:1px solid #ccc; */
+  /* border-bottom: 1px solid #ccc; */
   /* color:#888; */
   border-top:none;
-  /* border-bottom-right-radius:5px;
-  border-bottom-left-radius:5px; */
+  /* border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px; */
   overflow:hidden; 
   font-size: 16px;
   color: #464c56;

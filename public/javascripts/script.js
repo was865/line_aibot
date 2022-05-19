@@ -1,8 +1,19 @@
 $(function () {
 
+    $('.line__container').draggable({
+     	// containment: "parent",
+        // 	axis: 'x'
+     	// helper: 'clone'
+        handle: $('.line__title'),
+        // start: function(e, ui){
+        //     $(this).css('bottom', 'auto').addClass('moving');
+        // },
+        // zIndex: 99
+    });
+
     // var INDEX = 0;
     function generate_message(msg, type, posttime) {
-        INDEX++;
+        // INDEX++;
         var str = "";
         if (!posttime) {
             var today = new Date();
