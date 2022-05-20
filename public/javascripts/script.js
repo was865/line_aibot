@@ -43,11 +43,11 @@ $(function () {
             posttime = today.getHours() + ":" + ('0' + today.getMinutes()).slice(-2);
         }
         if (type == 'self') {
-            str = '<div class="line__right">'
+            str = '<div class="line__right animate__animated animate__fadeInUp animate__faster animate__repeat-1">'
                 + '<div class="text">' + msg + '</div>'
                 + '<span class="date">既読<br>' + posttime + '</span></div>'
         } else if (type == 'user'){
-            str = '<div class="line__left">'
+            str = '<div class="line__left animate__animated animate__fadeInUp animate__faster animate__repeat-1">'
                 + '  <figure><img src="/icon.png" /></figure>'
                 + '  <div class="line__left-text">'
                 + '  <div class="name">てすとイチゴウ</div>'
@@ -55,7 +55,7 @@ $(function () {
                 + '  </div>'
                 + '</div>'
         } else if (type = 'stamp') {
-            str = '<div class="line__left"><figure><img src="/icon.png" /></figure><div class="stamp"><div class="name">てすとイチゴウ</div><img src="/stamp/14.png" /></div></div>'
+            str = '<div class="line__left animate__animated animate__fadeInUp animate__faster animate__repeat-1"><figure><img src="/icon.png" /></figure><div class="stamp"><div class="name">てすとイチゴウ</div><img src="/stamp/14.png" /></div></div>'
         }
         
         $(".line__contents").append(str);
@@ -70,6 +70,14 @@ $(function () {
 
     $('#chat-submit').click(function(e){
         e.preventDefault();
+        if ($('#chat-input').val().length == 0) {
+            $('#chat-input').addClass('animate__animated animate__headShake animate__faster animate__repeat-1');
+            $('#chat-input').on('animationend webkitAnimationEnd', function(){
+                // CSSのanimationプロパティで設定したものが終了した時に実行する内容
+                $(this).removeClass('animate__animated animate__headShake animate__faster animate__repeat-1');
+            });
+            return false;
+        }
         var inputtext = $('#chat-input').val();
         generate_message(inputtext, 'self', null);
         $('#chat-input').val('');
