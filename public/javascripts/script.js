@@ -102,4 +102,57 @@ $(function () {
             console.log("Ajax通信完了。");
         })
     })
+
+    // 右クリック機能
+    $.contextMenu({
+        // define which elements trigger this menu
+        selector: ".text",
+        items: {
+            copy: {
+                name: "コピー",
+                // disabled: function(){
+                //     return this.data('showAllDisabled'); 
+                // }, 
+                // icon: "fa-eye", 
+                callback: function(key, opt){
+                    // コピーする文章の取得
+                    let text = $(this).text();
+                    // テキストエリアの作成
+                    let $textarea = $('<textarea></textarea>');
+                    // テキストエリアに文章を挿入
+                    $textarea.text(text);
+                    //　テキストエリアを挿入
+                    $(this).append($textarea);
+                    //　テキストエリアを選択
+                    $textarea.select();
+                    // コピー
+                    document.execCommand('copy');
+                    // テキストエリアの削除
+                    $textarea.remove();
+                    // アラート文の表示
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        // timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'コピーしました。',
+                        showClass: {
+                            // backdrop: 'swal2-noanimation', // disable backdrop animation
+                            popup: '',                     // disable popup animation
+                            icon: ''                       // disable icon animation
+                        },
+                    })
+                }
+            }
+        }
+    });
 })
