@@ -38,7 +38,7 @@ body {
 
 /* タイトル部分 */
 .line__container .line__title {
-  font-family: cursive;
+  font-family: cursive, 'TsukuBRdGothic-Regular', "UD Digi Kyokasho N-R";
   background: #273246;
   padding: 10px;
   text-align: center;
