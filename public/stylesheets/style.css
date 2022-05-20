@@ -290,9 +290,6 @@ body {
     border-radius: 0;
     font-size: 130%;
   }
-  .line__container .line__title:active {
-    cursor: grabbing;
-  }
 
   /* 会話部分 */
   .line__container .line__contents {
