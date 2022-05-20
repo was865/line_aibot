@@ -200,24 +200,28 @@ body {
   border: 1px solid #ccc;
   border-bottom-right-radius:10px;
   border-bottom-left-radius:10px;
+  height: 60px; 
 }
 #chat-input {
   /* background: #ffffff; */
-  width:calc(100% - 50px); 
+  width:calc(100% - 60px - 10px); 
   /* position:relative; */
-  height:50px;  
-  padding-top:10px;
+  height: 40px; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  /* padding-top:5px; */
   padding-right:50px;
-  padding-bottom:10px;
+  /* padding-bottom:5px; */
   padding-left:15px;
+  margin-left: 10px;
   border:none;
   resize:none;
   outline:none;
-  /* border-bottom: 1px solid #ccc; */
+  /* border: 1px solid #ccc; */
+  background-color: rgb(239, 239, 239);
   /* color:#888; */
-  border-top:none;
-  /* border-bottom-right-radius:10px;
-  border-bottom-left-radius:10px; */
+  /* border-top:none; */
+  border-radius: 20px;
   overflow:hidden; 
   font-size: 16px;
   color: #464c56;
@@ -246,7 +250,7 @@ body {
   width: 30px;
   border-radius: 50%;
   padding: 2px 0 0 0;
-  margin: 10px;
+  margin: 15px;
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
@@ -296,16 +300,11 @@ body {
   }
 
   .line__container .scroll {
-    height: calc(100vh - 50px - 56px - 15px);
+    height: calc(100vh - 50px - 56px - 20px);
   }
 
-  #chat-input{
-    height: calc(50px + 15px);
-    padding-bottom: calc(10px + 15px);
-  }
-
-  .chat-submit {
-    bottom: 15px;
+  #chat-input-form {
+    height: calc(60px + 20px); 
   }
 
   #chat-input-form {

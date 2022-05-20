@@ -1,23 +1,28 @@
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8"/>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> -->
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0 user-scalable=no"> <!-- user-scalable=noは非推奨 -->
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0 user-scalable=no">
+  <!-- user-scalable=noは非推奨 -->
   <title>LINE aiBot │ WebSite Side </title>
   <!-- <link rel='stylesheet' href='style.css' type='text/css' media='all' /> -->
-  <link rel='stylesheet' href='/stylesheets/style.css' type='text/css' media='all'/>
+  <link rel='stylesheet' href='/public/stylesheets/style.css' type='text/css' media='all' />
   <!-- アプリケーション化 -->
-	<link rel="manifest" href="manifest.json" />
-	<link rel="manifest" href="manifest.webmanifest" />
-	<script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js" integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous"></script>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js"
+    integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous">
+  </script>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   <!-- jQuery UI -->
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <!-- 使用するアイコンを画面ロード中にローカルに落とす（高速化） -->
-	<link rel="preload" href="/stamp/14.png" as="image" type="image/svg+xml">
-	<link rel="preload" href="icon.png" as="image" type="image/svg+xml">
+  <link rel="preload" href="/stamp/14.png" as="image" type="image/svg+xml">
+  <link rel="preload" href="icon.png" as="image" type="image/svg+xml">
 </head>
+
 <body>
 
   <!-- ▼LINE風ここから -->
@@ -71,10 +76,19 @@
 
     </div>
     <div class="chat-input">
-        <form autocomplete="off" id="chat-input-form">
-            <input type="text" id="chat-input" placeholder="チャット内容はここに入力..." required/>
-            <button type="submit" class="chat-submit" id="chat-submit"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title/><g fill="rgba(0,0,0,.38)" data-name="1" id="_1"><path d="M291.48,449.94A15,15,0,0,1,278,441.5L207.5,296.57,62.57,226.08a15,15,0,0,1,1-27.41L435.48,49.08A15,15,0,0,1,455,68.6L305.4,440.54A15,15,0,0,1,292,449.93Zm-185.38-236,119.18,58a15,15,0,0,1,6.93,6.93l58,119.18L414,90Z"/><path d="M218.72,300.35a15,15,0,0,1-10.6-25.61L430.47,52.39a15,15,0,1,1,21.21,21.22L229.33,296A15,15,0,0,1,218.72,300.35Z"/></g></svg></button>
-        </form>
+      <form autocomplete="off" id="chat-input-form">
+        <input type="text" id="chat-input" placeholder="Aa" required />
+        <button type="submit" class="chat-submit" id="chat-submit"><svg viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg">
+            <title />
+            <g fill="rgba(0,0,0,.38)" data-name="1" id="_1">
+              <path
+                d="M291.48,449.94A15,15,0,0,1,278,441.5L207.5,296.57,62.57,226.08a15,15,0,0,1,1-27.41L435.48,49.08A15,15,0,0,1,455,68.6L305.4,440.54A15,15,0,0,1,292,449.93Zm-185.38-236,119.18,58a15,15,0,0,1,6.93,6.93l58,119.18L414,90Z" />
+              <path
+                d="M218.72,300.35a15,15,0,0,1-10.6-25.61L430.47,52.39a15,15,0,1,1,21.21,21.22L229.33,296A15,15,0,0,1,218.72,300.35Z" />
+            </g>
+          </svg></button>
+      </form>
     </div>
     <!--　▲会話エリア ここまで -->
   </div>
@@ -84,4 +98,4 @@
 
 </html>
 
-<script src="/javascripts/script.js"></script>
+<script src="/public/javascripts/script.js"></script>

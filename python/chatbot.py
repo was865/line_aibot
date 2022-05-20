@@ -13,7 +13,7 @@ jsonData = sys.stdin.readline()  # ①データはこうやって読み込むら
 json_dict = json.loads(jsonData)
 
 bot = ChatBot(
-    name='ボット',
+    name='LineBot',
     tagger_language=languages.JPN  # 統計モデルの言語指定
     # tagger_language=languages.GINZA  # GINZAモデルの場合
     # ,read_only=True,         # train後対話では学習させない

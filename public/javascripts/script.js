@@ -21,15 +21,13 @@ $(function () {
     if (isIPhone) {
         $('#chat-input').focus(function () {
             $('.line__container .scroll').css('height', 'calc(100vh - 50px - 56px)');
-            $('#chat-input').css('height', '50px');
-            $('#chat-input').css('padding-bottom', '10px');
-            $('.chat-submit').css('bottom', '0px');
+            $('#chat-input-form').css('height', '60px');
         })
         $('#chat-input').blur(function () {
             $('.line__container .scroll').css('height', '');
-            $('#chat-input').css('height', '');
-            $('#chat-input').css('padding-bottom', '');
-            $('.chat-submit').css('bottom', '');
+            $('#chat-input-form').css('height', '');
+
+            // $('.chat-submit').css('bottom', '');
         })
     }
 
