@@ -8,35 +8,35 @@
       "type": "image/x-icon"
     },
     {
-      "src": "images/icons/ikisaki-logo-128.png",
-      "sizes": "128x128",
+      "src": "images/icons/icons8-ボット-48.png",
+      "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "images/icons/ikisaki-logo-128-maskable.png",
-      "sizes": "128x128",
+      "src": "images/icons/icons8-ボット-48(@2x).png",
+      "sizes": "48x48",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "images/icons/ikisaki-logo-192.png",
-      "sizes": "192x192",
+      "src": "images/icons/icons8-ボット-96.png",
+      "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "images/icons/ikisaki-logo-192-maskable.png",
-      "sizes": "192x192",
+      "src": "images/icons/icons8-ボット-96-maskable.png",
+      "sizes": "96x96",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "images/icons/ikisaki-logo.png",
-      "sizes": "512x512",
+      "src": "images/icons/bot-logo.png",
+      "sizes": "172x172",
       "type": "image/png"
     },
     {
-      "src": "images/icons/ikisaki-logo-maskable.png",
-      "sizes": "512x512",
+      "src": "images/icons/bot-logo-maskable.png",
+      "sizes": "172x172",
       "type": "image/png",
       "purpose": "any maskable"
     }
