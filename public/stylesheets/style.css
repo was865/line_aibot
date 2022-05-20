@@ -38,6 +38,7 @@ body {
 
 /* タイトル部分 */
 .line__container .line__title {
+  font-family: cursive;
   background: #273246;
   padding: 10px;
   text-align: center;
