@@ -19,13 +19,13 @@ bot = ChatBot(
     # ,read_only=True,         # train後対話では学習させない
 )
 
-if json_dict["doTrain"] == True:
-    trainer = ChatterBotCorpusTrainer(bot)
+# if json_dict["doTrain"] == True:
+#     trainer = ChatterBotCorpusTrainer(bot)
 
-    trainer.train(
-        # '/app/python/chatterbot_corpus/data/japanese'  # 日本語用コーパス
-        '/app/python/my_traindata.json'
-    )
+#     trainer.train(
+#         # '/app/python/chatterbot_corpus/data/japanese'  # 日本語用コーパス
+#         '/app/python/my_traindata.json'
+#     )
 
 try:
     input_data = json_dict["input_text"]
