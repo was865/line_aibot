@@ -20,6 +20,7 @@ bot = ChatBot(
     database_uri='sqlite:////app/python/db.sqlite3'
 )
 
+# 学習が重いため、Webサイトでは使わない
 # if json_dict["doTrain"] == True:
 #     trainer = ChatterBotCorpusTrainer(bot)
 
