@@ -17,7 +17,7 @@ bot = ChatBot(
     tagger_language=languages.JPN,  # 統計モデルの言語指定
     # tagger_language=languages.GINZA  # GINZAモデルの場合
     # ,read_only=True,         # train後対話では学習させない
-    database_uri='sqlite:///./app/python/db.sqlite3'
+    database_uri='sqlite:////app/python/db.sqlite3'
 )
 
 # if json_dict["doTrain"] == True:
