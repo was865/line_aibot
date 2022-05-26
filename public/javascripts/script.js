@@ -86,7 +86,7 @@ $(function () {
             generate_message('システムが休眠から目覚めています、少々お待ちください...', 'user', null);
             generate_message('', 'stamp', null);
             clearTimeout(timerId);
-        }, 3000);
+        }, 12000);
 
         $.ajax({
         type: 'post',

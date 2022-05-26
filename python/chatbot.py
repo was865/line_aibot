@@ -1,5 +1,5 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot import ChatBot, filters
+# from chatterbot.trainers import ChatterBotCorpusTrainer
 # from chatterbot import languages  # 言語モジュール
 import languages  # 自作言語モジュール
 
@@ -15,8 +15,9 @@ json_dict = json.loads(jsonData)
 bot = ChatBot(
     name='LineBot',
     tagger_language=languages.JPN,  # 統計モデルの言語指定
-    # tagger_language=languages.GINZA  # GINZAモデルの場合
-    # ,read_only=True,         # train後対話では学習させない
+    # tagger_language=languages.GINZA,  # GINZAモデルの場合
+    # read_only=True,         # train後対話では学習させない
+    filters=[filters.get_recent_repeated_responses],
     database_uri='sqlite:////app/python/db.sqlite3'
 )
 
